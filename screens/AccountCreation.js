@@ -1,141 +1,75 @@
-import { useNavigation } from "@react-navigation/core";
-import { StatusBar } from "expo-status-bar";
-import React, { useState } from "react";
-import {
-  KeyboardAvoidingView,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import React from 'react';
+import { 
+    View, 
+    Text, 
+    TouchableOpacity, 
+    Dimensions,
+    StyleSheet,
+    StatusBar,
+    Image
+} from 'react-native';
+const SplashScreen = ({navigation}) => {
+    
 
-const SignUp = () => {
-  const [password, setPassword] = useState("");
-    const [email, setEmail] = useState("");
-    const [number, setNumber] = useState("");
-
-    navigation = useNavigation()
-  return (
-    <KeyboardAvoidingView
-      behavior="padding"
-      enabled
-      style={{
-        marginTop: 100,
-        flex: 1,
-      }}
-    >
-      <Text
-        style={{
-          color: "#3F419B",
-          fontSize: 60,
-          maxWidth: 500,
-          textAlign: "center",
-        }}
-      >
-        ORRAMO
-      </Text>
-      <Text
-        style={{
-          color: "#000",
-          fontSize: 30,
-          maxWidth: 500,
-          marginTop: 30,
-          textAlign: "center",
-        }}
-      >
-        Create Account
-      </Text>
-
-      <KeyboardAvoidingView>
-        <View style={styles.gap}>
-          <Text style={styles.text}>Email</Text>
-          <TextInput
-            style={styles.input}
-            onChangeText={(email) => setEmail(email)}
-            value={email}
-          />
-              </View>
-              <View style={styles.gap}>
-          <Text style={styles.text}>Phone Number</Text>
-          <TextInput
-            style={styles.input}
-            onChangeText={() => setPassword(password)}
-            value={password}
-          />
+    return (
+      <View>
+        <View>
+          <Text></Text>
         </View>
-        <View style={styles.gap}>
-          <Text style={styles.text}>Password</Text>
-          <TextInput
-            style={styles.input}
-            onChangeText={(password) => setPassword(password)}
-            value={password}
-          />
-        </View>
-        <TouchableOpacity>
-          <Text style={styles.forgot}>Forgot Password?</Text>
-        </TouchableOpacity>
-      </KeyboardAvoidingView>
-
-      <TouchableOpacity
-        style={{
-          borderRadius: 10,
-          alignItems: "center",
-          backgroundColor: "#3F419B",
-          padding: 15,
-          textAlign: "center",
-          marginTop: 40,
-          marginLeft: 60,
-          marginRight: 60,
-          paddingHorizontal: 10,
-        }}
-        onPress={() => navigation.navigate("Home")}
-      >
-        <Text style={{ fontSize: 20, color: "white" }}>Sign up</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity>
-        <Text style={styles.register}>
-          By clicking Sign up you agree to the Terms & Privacy.
-        </Text>
-      </TouchableOpacity>
-    </KeyboardAvoidingView>
-  );
+     </View>
+    );
 };
 
-export default SignUp;
+export default SplashScreen;
+
+const {height} = Dimensions.get("screen");
+const height_logo = height * 0.28;
 
 const styles = StyleSheet.create({
-  input: {
-    color: "#000",
-    borderRadius: 10,
-    height: 40,
-    marginRight: 22,
-    marginLeft: 22,
-    marginTop: 10,
-    padding: 25,
-    backgroundColor: "grey",
-    opacity: 0.1,
+  container: {
+    flex: 1, 
+    backgroundColor: '#009387'
   },
-  gap: {
-    marginTop: 30,
+  header: {
+      flex: 2,
+      justifyContent: 'center',
+      alignItems: 'center'
+  },
+  footer: {
+      flex: 1,
+      backgroundColor: '#fff',
+      borderTopLeftRadius: 30,
+      borderTopRightRadius: 30,
+      paddingVertical: 50,
+      paddingHorizontal: 30
+  },
+  logo: {
+      width: height_logo,
+      height: height_logo
+  },
+  title: {
+      color: '#05375a',
+      fontSize: 30,
+      fontWeight: 'bold'
   },
   text: {
-    marginLeft: 25,
-    fontWeight: "bold",
+      color: 'grey',
+      marginTop:5
   },
-  forgot: {
-    fontWeight: "bold",
-    fontSize: 11,
-    paddingLeft: 290,
-    marginTop: 10,
+  button: {
+      alignItems: 'flex-end',
+      marginTop: 30
   },
-    register: {
-        color: "#3F419B",
-        fontSize: 11,
-        paddingTop: 10,
-        textAlign:"center"
+  signIn: {
+      width: 150,
+      height: 40,
+      justifyContent: 'center',
+      alignItems: 'center',
+      borderRadius: 50,
+      flexDirection: 'row'
   },
+  textSign: {
+      color: 'white',
+      fontWeight: 'bold'
+  }
 });
